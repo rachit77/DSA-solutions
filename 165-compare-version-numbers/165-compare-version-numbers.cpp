@@ -26,13 +26,13 @@ public:
             if(num1<num2)
             {
                 return -1;
-                break;
+                //break;
             }
             
             if(num2<num1)
             {
                 return 1;
-                break;
+                //break;
             }
             
             num1=0;

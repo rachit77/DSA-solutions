@@ -16,10 +16,12 @@ public:
         if(root==NULL)
         return ;
         
+        if(root->left)
        inorder(root->left,v);
         
         v.push_back(root->val);
         
+        if(root->right)
         inorder(root->right,v);
         
         return;

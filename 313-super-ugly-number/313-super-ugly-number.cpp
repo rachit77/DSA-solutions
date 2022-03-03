@@ -33,11 +33,11 @@ public:
 //         return dp[n-1];
         
         
-        int dp[n+1]; int k=primes.size();
-    memset(dp,0,sizeof(dp));
+        vector<int> dp(n+1,0); int k=primes.size();
+   // memset(dp,0,sizeof(dp));
     dp[0]=1;
-    int pointer[k];
-    memset(pointer,0,sizeof(pointer));
+    vector<int> pointer(k,0);
+    //memset(pointer,0,sizeof(pointer));
     for(int i=1; i<n; i++){
         int mn=INT_MAX;
         for(int j=0; j<k; j++){

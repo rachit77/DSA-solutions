@@ -20,7 +20,7 @@ public:
             
             for(int j=0;j<b.size();j++)
             {
-                if(ss.compare(b[j])==0) // we got the string in dict
+                if(ss==b[j]) // we got the string in dict
                 {
                     f=1;
                     break;

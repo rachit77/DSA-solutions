@@ -23,6 +23,7 @@ public:
                 if(ss==b[j]) // we got the string in dict
                 {
                     f=1;
+                    dp[ss]=1;
                     break;
                 }
                 

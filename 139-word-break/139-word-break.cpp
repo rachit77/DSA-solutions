@@ -16,12 +16,14 @@ public:
             string ss=s.substr(0,i);
             int f=0;
             
+            if(dp[ss]==1)
+                return dp[ss];
+            
             for(int j=0;j<b.size();j++)
             {
                 if(ss.compare(b[j])==0) // we got the string in dict
                 {
                     f=1;
-                    dp[ss]=1;
                     break;
                 }
                 

@@ -16,8 +16,7 @@ public:
             string ss=s.substr(0,i);
             int f=0;
             
-            if(dp[ss]==1)
-                return dp[ss];
+           
             
             for(int j=0;j<b.size();j++)
             {

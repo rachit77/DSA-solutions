@@ -21,6 +21,7 @@ public:
                 if(ss.compare(b[j])==0) // we got the string in dict
                 {
                     f=1;
+                    dp[ss]=1;
                     break;
                 }
                 

@@ -42,6 +42,15 @@ public:
             
         }
         
+        ListNode* check=dummy->next;
+        while(check)
+        {
+            cout<<check->val<<endl;
+            check=check->next;
+        }
+        
+        
+        
        return dummy->next;
         
     }

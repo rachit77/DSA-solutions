@@ -27,9 +27,7 @@ int ma=nums[0],mi=nums[0],ans=nums[0];
             
             if(nums[i]<0)
             {
-                int temp=ma;
-                ma=mi;
-                mi=temp;
+                swap(ma,mi);
             }
             
             ma=max(nums[i],ma*nums[i]);

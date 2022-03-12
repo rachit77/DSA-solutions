@@ -28,7 +28,7 @@ public:
         //fill the dp
         for(int i=1;i<n+1;i++) // array
         {
-            for(int j=1;j<sum+1;j++) //sum
+            for(int j=0;j<sum+1;j++) //sum
             {
                 if(nums[i-1]>j)
                     dp[i][j]=dp[i-1][j];

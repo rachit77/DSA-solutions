@@ -110,8 +110,8 @@ public:
               temp="";
           }
             else
-                //temp.push_back(path[i]);
-                temp=temp+path[i];
+                temp.push_back(path[i]);
+                //temp=temp+path[i];
             
             i++;
               

@@ -95,9 +95,7 @@ public:
           {
              if(temp=="" || temp==".")
              {
-                 i++;
-                 temp="";
-               continue;  
+                
              }
                 
               else if(temp=="..")

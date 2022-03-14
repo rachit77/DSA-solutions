@@ -119,18 +119,40 @@ public:
         
         
         //process the stack
-        string ans;
-        while(!st.empty()) {
-            ans="/"+st.top()+ans;
-            st.pop();
-        }
+//         string ans;
+//         while(!st.empty()) {
+//             ans="/"+st.top()+ans;
+//             st.pop();
+//         }
         
-        //check if string is empty
-        if(ans.empty())
-            ans="/";
+//         //check if string is empty
+//         if(ans.empty())
+//             ans="/";
         
-        return ans;
+//         return ans;
         
+        
+        
+        
+      string  ans="/";
+
+stack<string>reversed_stack;
+
+if(st.empty()){
+    return ans;
+}
+
+while(!st.empty()){ // reverse the stack elements
+    reversed_stack.push(st.top());
+    st.pop();
+}
+
+while(!reversed_stack.empty()){
+    ans+=reversed_stack.top()+"/";
+    reversed_stack.pop();
+}
+
+return ans.substr(0,ans.length()-1);
         
     }
 };

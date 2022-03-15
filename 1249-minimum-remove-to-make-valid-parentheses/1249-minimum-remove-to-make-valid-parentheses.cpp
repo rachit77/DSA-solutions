@@ -20,12 +20,7 @@ public:
             }
         }
         
-        // stack<pair<int,char>> k=st;
-        // while(!k.empty())
-        // {
-        //     cout<<k.top().first<<" "<<k.top().second<<endl;
-        //     k.pop();
-        // }
+       
         
         string ans;
         
@@ -38,12 +33,7 @@ public:
             st.pop();
         }
         
-        // stack<pair<int,char>> k=st_rev;
-        // while(!k.empty())
-        // {
-        //     cout<<k.top().first<<" "<<k.top().second<<endl;
-        //     k.pop();
-        // }
+       
         
         for(i=0;i<n;i++)
         {

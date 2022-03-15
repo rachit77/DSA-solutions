@@ -5,7 +5,7 @@ public:
         int n=arr.size();
         
         //next smaller elemnet and prev smaller element
-        vector<int> nex(n,0);
+        vector<int> nex(n);
         vector<int> prev(n);
         
         stack<int> st;
@@ -29,19 +29,6 @@ public:
             st.pop();
         }
         
-        
-       
-        
-        //test print nex vector
-        
-//         for(i=0;i<n;i++)
-//         {
-//             cout<<nex[i]<<endl;
-//         }
-        
-        
-        
-        
         //previous smaller element
         for(i=n-1;i>=0;i--)
         {
@@ -59,14 +46,6 @@ public:
             prev[st.top()]=0;
             st.pop();
         }
-        
-        
-        //test print nex vector
-        // cout<<"------"<<endl;
-        // for(i=0;i<n;i++)
-        // {
-        //     cout<<prev[i]<<endl;
-        // }
         
         //now cal the sum of min in those sub arrays
         int ans=0;

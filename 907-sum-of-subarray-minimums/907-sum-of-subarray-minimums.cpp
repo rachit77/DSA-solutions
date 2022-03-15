@@ -73,21 +73,13 @@ public:
         long long mod = 1e9 + 7;
         
         for(int i=0;i<n;i++){
-            long long left=i-prev[i]+1;
-            // if(left<0)
-            // {
-            //     cout<<i<<" "<<left<<endl;
-            // }
-            long long right=nex[i]-i+1;
-            // if(right<0)
-            // {
-            //     cout<<i<<" "<<right<<endl;
-            // }
+            int left=i-prev[i]+1;
+            
+            int right=nex[i]-i+1;
             
             ans+= (arr[i]* ( (left*right)%mod) ) %mod;
             ans=ans%mod;
-        //     if(ans<0)
-        //         cout<<i<<"v "<<ans<<endl;
+       
          }
         
         return ans;

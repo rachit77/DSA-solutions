@@ -13,7 +13,6 @@ public:
         
         while(i<n)
         {
-            if(s.empty()==true || s.top()!=popped[j])
                 s.push(pushed[i]);
                 
             while(!s.empty() && s.top()==popped[j]) { //s.top ==popper[j] 
@@ -21,12 +20,6 @@ public:
                     j++; 
                 }
             i++;
-        }
-        
-        while(j<n && !s.empty()) {
-            if(s.top()==popped[j]) 
-                s.pop();
-            j++;       
         }
         
         return (s.empty())?true:false;      

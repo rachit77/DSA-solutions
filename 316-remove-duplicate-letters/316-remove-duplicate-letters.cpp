@@ -19,27 +19,24 @@ public:
         for(i=0;i<n;i++)
         {
             if(vis[s[i]-'a']==0){
-            if(st.empty())
-            {
-                st.push(s[i]);
-                vis[s[i]-'a']=1;
+//             if(st.empty())
+//             {
+//                 st.push(s[i]);
+//                 vis[s[i]-'a']=1;   
+//             }
                 
-            }
-                
-            else {
+//             else {
                 
             while(!st.empty() && s[i]<st.top() && freq[st.top()-'a']>0)                 {   
                     vis[st.top()-'a']=0; //mark it unvisited again
-                //cout<<i<<" "<<st.top()<<" "<<freq[st.top()-'a']<<endl;
                     st.pop();
                    
                 }
                 
                 st.push(s[i]);
                 vis[s[i]-'a']=1;
-                // freq[s[i]-'a']--;
              }
-            }
+            //}
             freq[s[i]-'a']--;
            
         }

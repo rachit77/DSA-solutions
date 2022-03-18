@@ -21,7 +21,7 @@ public:
     priority_queue< pair<int,int>, vector<pair<int,int>>, compare>  heap;
         
         for(auto it: m) {
-            heap.push(make_pair(it.first, it.second));
+            heap.push({it.first, it.second});
         }
         
         vector<int> ans; //store top-k elements

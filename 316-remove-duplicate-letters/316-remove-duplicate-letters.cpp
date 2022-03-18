@@ -18,27 +18,16 @@ public:
         
         for(i=0;i<n;i++)
         {
-            if(vis[s[i]-'a']==0){
-//             if(st.empty())
-//             {
-//                 st.push(s[i]);
-//                 vis[s[i]-'a']=1;   
-//             }
-                
-//             else {
-                
+            if(vis[s[i]-'a']==0) {        
             while(!st.empty() && s[i]<st.top() && freq[st.top()-'a']>0)                 {   
                     vis[st.top()-'a']=0; //mark it unvisited again
-                    st.pop();
-                   
-                }
+                    st.pop();   
+            }
                 
                 st.push(s[i]);
                 vis[s[i]-'a']=1;
              }
-            //}
-            freq[s[i]-'a']--;
-           
+            freq[s[i]-'a']--; 
         }
         
         string ans;
@@ -47,8 +36,6 @@ public:
             ans=st.top() + ans;
             st.pop();
         }
-        
-        return ans;
-        
+        return ans; 
     }
 };

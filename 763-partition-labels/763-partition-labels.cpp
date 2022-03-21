@@ -25,7 +25,7 @@ public:
               cur_len++;  
                 if(br==i)
                 {
-                    if(cur_len)
+                    //if(cur_len)
                     ans.push_back(cur_len);
                     cur_len=0;
                     br=-1;

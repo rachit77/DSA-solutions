@@ -3,7 +3,7 @@ public:
     string getSmallestString(int n, int k) {
         
         string ans;
-        long int i;
+        int i;
         
         k=k-n;
         

@@ -32,10 +32,7 @@ public:
         
         vector<int> an;
         for(i=0;i<ans.size();i++)
-        {
-           // cout<<ans[0].first<<" "<<ans[0].second<<endl;
            an.push_back(ans[i].second); 
-        }
         return an;
     }
 };

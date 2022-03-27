@@ -19,8 +19,6 @@ public:
             ans.push_back({temp,i});
         }
         
-        //sort in asc order
-        
         sort(ans.begin(), ans.end());
         
         while(k<mat.size())
@@ -28,7 +26,6 @@ public:
             ans.pop_back();
             k++;
         }
-        
         
         vector<int> an;
         for(i=0;i<ans.size();i++)

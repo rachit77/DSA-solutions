@@ -8,7 +8,8 @@ public:
             if(s[l]!=s[h])
                 return false;
             
-            l++; h--;
+            l++; 
+            h--;
         }
         return true;
     }

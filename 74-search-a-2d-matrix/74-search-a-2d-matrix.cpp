@@ -11,7 +11,7 @@ public:
         m=matrix.size();   //rows
         n=matrix[0].size();  // columns
         
-        int row=-1;
+    int row=-1;  //variable to store the row in which the target is present
         
         for(i=0;i<m;i++)
         {

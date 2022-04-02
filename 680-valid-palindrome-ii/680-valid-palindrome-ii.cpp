@@ -21,7 +21,8 @@ public:
             if(s[l]!=s[h])
                 return check(l+1,h,s) || check(l,h-1,s);
             
-            l++;  h--;   
+            l++;  
+            h--;   
         }        
         return true;
         

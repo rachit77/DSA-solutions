@@ -2,12 +2,7 @@ class Solution {
 public:
     void nextPermutation(vector<int>& nums) {
         
-        
-        
         int i,n=nums.size();
-        
-        int loc_min_num=INT_MAX,temp,loc_min=-1;
-        
        int break_pt=-1;
            
            //find break pt

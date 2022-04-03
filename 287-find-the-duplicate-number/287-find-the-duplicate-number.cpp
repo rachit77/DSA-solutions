@@ -2,20 +2,26 @@ class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
         
-        sort(nums.begin(), nums.end());
+       int low = 1, high = nums.size() - 1, cnt;
         
-        int i,n=nums.size(),k;
-        
-        for(i=0;i<n-1;i++)
+        while(low <=  high)
         {
-            if(nums[i]==nums[i+1])
+            int mid = low + (high - low) / 2;
+            cnt = 0;
+            for(int n : nums)
             {
-                k= nums[i];
-                break;
+                if(n <= mid)
+                    ++cnt;
             }
+            
+            cout<<low<<" "<<high<<" "<<mid<<" "<<cnt<<endl;
+            if(cnt <= mid)
+                low = mid + 1;
+            else
+                high = mid - 1;
+            
         }
-        
-        return k;
+        return low;
         
     }
 };

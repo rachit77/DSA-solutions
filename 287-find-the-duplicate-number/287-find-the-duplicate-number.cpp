@@ -4,7 +4,7 @@ public:
         
        int low = 1, high = nums.size() - 1, cnt;
         
-        while(low <=  high)
+        while(low < high)
         {
             int mid = low + (high - low) / 2;
             cnt = 0;
@@ -18,7 +18,7 @@ public:
             if(cnt <= mid)
                 low = mid + 1;
             else
-                high = mid - 1;
+                high = mid ;
             
         }
         return low;

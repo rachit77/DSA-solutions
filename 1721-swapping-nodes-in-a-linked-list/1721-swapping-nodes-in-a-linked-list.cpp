@@ -35,7 +35,6 @@ public:
         left->val= right->val;
         right->val=temp;
         
-        return head;
-        
+        return head; 
     }
 };

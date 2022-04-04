@@ -26,8 +26,8 @@ public:
             if(num>k)
                 right=right->next;
             
-            num++;
             cur=cur->next;
+             num++;
             
         }
         

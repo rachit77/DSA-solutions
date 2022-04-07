@@ -13,7 +13,6 @@ public:
             int y = stones.front();
             pop_heap(stones.begin(),stones.end());
             stones.pop_back();
-
             
             if(x==y)
                 continue;
@@ -22,6 +21,10 @@ public:
             push_heap(stones.begin(), stones.end());
             
         }
+        
+        
+        
+        
         
         return stones.size()? stones.front():0;
     }

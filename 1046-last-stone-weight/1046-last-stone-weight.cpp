@@ -20,12 +20,7 @@ public:
             stones.push_back(x-y);
             push_heap(stones.begin(), stones.end());
             
-        }
-        
-        
-        
-        
-        
+        }        
         return stones.size()? stones.front():0;
     }
 };

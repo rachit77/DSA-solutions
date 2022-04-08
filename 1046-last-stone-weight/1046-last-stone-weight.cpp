@@ -26,15 +26,17 @@ public:
         
         priority_queue<int> pq(v.begin(),v.end());
         
-        while(true)
+        while(pq.size()>1)
         {
-            if(pq.size() ==0)   return 0;
-            if(pq.size() ==1)   return pq.top();
+            // if(pq.size() ==0)   return 0;
+            // if(pq.size() ==1)   return pq.top();
             int a = pq.top();
             pq.pop();
             int b = pq.top();
             pq.pop();
             if(a!=b)    pq.push(a-b);
         }
+        
+        return pq.size()? pq.top():0;
     }
 };

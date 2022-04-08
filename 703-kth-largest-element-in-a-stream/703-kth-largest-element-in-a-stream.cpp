@@ -6,16 +6,14 @@ public:
     int size;
     
     KthLargest(int k, vector<int>& nums) {
-        size=k;
-        
+        size=k; 
         //make a stream of k largets element if available
         for(int i=0;i<nums.size();i++)
         {
             pq.push(nums[i]);
             
             if(pq.size() > k)
-                pq.pop();
-            
+                pq.pop();        
             
         }
         

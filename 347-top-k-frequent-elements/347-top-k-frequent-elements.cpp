@@ -32,7 +32,6 @@ public:
             ans.push_back(temp.first);
         }
         
-        return ans;
-        
+        return ans;  
     }
 };

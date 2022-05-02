@@ -8,14 +8,11 @@ public:
             {
                 if(nums[i]%2==0)
                 {
-    
                     swap(nums[i],nums[j]);
                      j++;
-                }
-               
+                }               
             }
-        
+     
         return nums;
-        
     }
 };

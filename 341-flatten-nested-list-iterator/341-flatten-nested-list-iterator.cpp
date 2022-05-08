@@ -30,7 +30,10 @@ public:
              if(nestedList[i].isInteger())
                  st.push(nestedList[i].getInteger());
              else
-                 flatten(nestedList[i].getList());
+             {
+                  flatten(nestedList[i].getList());
+             }
+                
          }
     }
     

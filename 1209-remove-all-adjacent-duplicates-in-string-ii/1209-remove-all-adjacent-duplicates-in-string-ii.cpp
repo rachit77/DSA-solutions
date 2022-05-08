@@ -25,19 +25,29 @@ public:
        
         while(!st.empty())
         {
-            auto cur = st.top();
-            st.pop();
             
-        while(cur.second--)
-        {
-            ans.push_back(cur.first);
-            //ans = ans+ cur.first;
-        }
+            ans.push_back(st.top().first);
+            st.top().second--;
+            
+            if(st.top().second==0)
+            st.pop();
         }
         
         reverse(ans.begin(), ans.end());
         return ans;
 
+
+
+
+//         while(!st.empty()){
+        
+        
+//             auto cur = st.top();
+//             st.pop();
+//             while(cur.second--){
+//                 ans.push_back(cur.first);
+//             }
+//         }
 
         
     }

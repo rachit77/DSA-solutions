@@ -21,7 +21,7 @@ public:
         }
         
     
-        string ans="";
+        string ans;
        
         while(!st.empty())
         {
@@ -35,20 +35,5 @@ public:
         
         reverse(ans.begin(), ans.end());
         return ans;
-
-
-
-
-//         while(!st.empty()){
-        
-        
-//             auto cur = st.top();
-//             st.pop();
-//             while(cur.second--){
-//                 ans.push_back(cur.first);
-//             }
-//         }
-
-        
     }
 };

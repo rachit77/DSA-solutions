@@ -19,11 +19,6 @@
 class NestedIterator {
 private:
     stack<int> st;
-public:
-    NestedIterator(vector<NestedInteger> &nestedList) {
-        flatten(nestedList); 
-    }
-    
     void flatten(vector<NestedInteger> &nestedList) {
          for(int i=nestedList.size()-1;i>=0;i--)
          {
@@ -36,6 +31,12 @@ public:
                 
          }
     }
+public:
+    NestedIterator(vector<NestedInteger> &nestedList) {
+        flatten(nestedList); 
+    }
+    
+    
     
     int next() {
         int temp=st.top();

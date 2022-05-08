@@ -37,21 +37,15 @@ class Solution {
     
     // 3. Top Down Aproach
     public:
-    int rob(vector<int>& nums) {
-        
-       // vector<int> dp(nums.size(),0);
-        
+    int rob(vector<int>& nums) {  
         int n=nums.size();
         
         int ne,prev;
         
-        if(n==1)
-        return nums[0];
-        
+        if(n==1) return nums[0];
+     
         prev=nums[0];
-        
-        
-        
+         
         if(n>=2)
         ne= max(nums[0],nums[1]);
         
@@ -62,7 +56,6 @@ class Solution {
             prev=temp;
         }
         
-        return ne;
-        
+        return ne;  
     }
 };

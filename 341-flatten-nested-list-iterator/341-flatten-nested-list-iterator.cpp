@@ -41,9 +41,7 @@ public:
     }
     
     bool hasNext() {
-        
-        return !st.empty();
-        
+        return !st.empty();  
     }
 };
 

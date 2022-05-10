@@ -16,11 +16,7 @@ public:
         {
             int t= sum(temp);
             if(t==n)
-            {
-                cout<<"hb";
                 ans.push_back(temp);
-            }
-                
             return;
         }
         
@@ -38,7 +34,6 @@ public:
         vector<int> temp;
        findCombination(1,n,k,temp);
         
-        return ans;
-        
+        return ans;  
     }
 };

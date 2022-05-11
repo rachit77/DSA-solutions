@@ -18,9 +18,7 @@ public:
         {
             ans=min(ans,v[s[i]-'a']);
         }
-        
-        // if(v['l'-'a']<2 || v['o'-'a']<2) ans=0;
-        
+         
         if(ans==INT_MAX)
             return 0;
         else

@@ -39,13 +39,15 @@ public:
 //         return ans;
 //     }
 
-vector<vector<int>> ans;
+//vector<vector<int>> ans;
+    set<vector<int>> ans;
     
     void permutate(vector<int> nums, int idx)
     { 
       if(idx==nums.size())
       {
-          ans.push_back(nums);
+          //ans.push_back(nums);
+          ans.insert(nums);
           return;
       }
         
@@ -61,9 +63,14 @@ vector<vector<int>> ans;
     }
 
 vector<vector<int>> permuteUnique(vector<int>& nums) {
-    sort(nums.begin(), nums.end());
+   // sort(nums.begin(), nums.end());
     permutate(nums,0);
     
-    return ans;
+    vector<vector<int>> ans1;
+    
+    for(auto x: ans)
+        ans1.push_back(x);
+    
+    return ans1;
    }
 };

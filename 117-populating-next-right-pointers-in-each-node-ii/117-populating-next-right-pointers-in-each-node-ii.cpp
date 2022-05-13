@@ -30,23 +30,20 @@ public:
         
         while(!q.empty())
         {
-            // cout<<q.front().first;
-            // q.pop();
             
+            pair<Node*,int> k;
+           pair<Node*,int> temp;
             
-            //queue<pair<Node*,int>> k;
-           // queue<pair<Node*,int>> temp;
-            
-           auto temp = q.front();
+            temp = q.front();
             q.pop();
             
-           // cout<<typeid(temp).name()<<endl;
+
             
             if(q.empty())
                 temp.first->next=NULL;
             else
             {
-               auto k=q.front();
+                k=q.front();
                 if(temp.second == k.second)
                     temp.first->next=k.first;
                 else

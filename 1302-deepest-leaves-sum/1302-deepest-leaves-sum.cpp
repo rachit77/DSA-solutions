@@ -24,7 +24,6 @@ public:
         
         sumL(root->left, &(*sum),&(*h),ch+1);
         sumL(root->right, sum,h,ch+1);
-        
         return;
     }
        

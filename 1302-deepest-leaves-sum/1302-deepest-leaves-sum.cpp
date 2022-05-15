@@ -13,30 +13,24 @@ class Solution {
 public:
     void sumL(TreeNode* root, int *sum, int *h, int ch )
     {
-        if(root==NULL)
-            return;
+        if(root==NULL)  return;
         
        if(*h<ch){
            *h=ch;
            *sum=root->val;
        }
         else if(*h ==ch)
-        {
             *sum+=root->val;
-        }
         
         sumL(root->left, &(*sum),&(*h),ch+1);
         sumL(root->right, sum,h,ch+1);
         
         return;
     }
-    
-    
-    int deepestLeavesSum(TreeNode* root) {
-        
+       
+    int deepestLeavesSum(TreeNode* root) { 
         int sum=0,h=0,ch=0;
         sumL(root,&sum,&h,ch);
-        
         return sum;
     }
 };

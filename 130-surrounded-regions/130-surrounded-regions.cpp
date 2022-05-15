@@ -19,8 +19,7 @@ public:
         return;
     }
     
-    void solve(vector<vector<char>>& board) {
-        
+    void solve(vector<vector<char>>& board) { 
         
         int row= board.size(), col=board[0].size();
         

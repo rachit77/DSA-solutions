@@ -76,7 +76,6 @@ bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
         // if all courses are in topo sort return true
         
         vector<vector<int>> adj(numCourses+1); // 0-> numCourses
-     
         
     //vector of indegree
     vector<int> in(numCourses,0);

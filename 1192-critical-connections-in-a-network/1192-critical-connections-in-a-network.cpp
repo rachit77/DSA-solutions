@@ -23,7 +23,7 @@ public:
             }
             else
             {
-                low[node]=min(low[node], tin[x]);
+                low[node]=min(low[node], low[x]);
             }
         }
     }

@@ -18,7 +18,6 @@ public:
         {
             s=s->next;
             f= f->next->next;
-            //if(f) f=f->next;
         }
         
         return s;

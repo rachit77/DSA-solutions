@@ -8,7 +8,7 @@ public:
 //         }
 //         return true;
 //     }
-    int countSubstrings(string s) {
+    // int countSubstrings(string s) {
         
 //         //method-1 naive approach brute force
 //         int n=s.length(),ans=0;
@@ -25,6 +25,7 @@ public:
     
     
     //method-2
+    int countSubstrings(string s) {
     int n=s.length(),ans=0;
     
     for(int i=0;i<n;i++)   //for odd length

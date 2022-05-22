@@ -14,17 +14,51 @@ public:
         //method-2 slow and fast pointer
         
         //method-1
-        unordered_map<ListNode*,int> m;
-        ListNode *s=head,*f=head;
+//         unordered_map<ListNode*,int> m;
+//         ListNode *s=head,*f=head;
+//         while(f!=NULL && f->next!=NULL)
+//         {
+//             if(m[s]==1)
+//                 return s;
+//             m[s]=1;
+            
+//             s=s->next;
+//             f=f->next->next;
+//         } 
+//         return NULL;
+        
+        //method-2
+        
+       // if()
+        ListNode *s=head,*f=head,*st=head;
+        
         while(f!=NULL && f->next!=NULL)
         {
-            if(m[s]==1)
-                return s;
-            m[s]=1;
-            
             s=s->next;
             f=f->next->next;
-        } 
-        return NULL;
+            if(s==f)
+            {
+                while(st!=s)
+                {
+                 s=s->next;
+                 st=st->next;
+                }
+                 return st;
+            }
+                
+        }
+
+        // if(f->next)
+        // {
+        //     while(st!=s)
+        //     {
+        //         s=s->next;
+        //         st=st->next;
+        //     }
+        //     return st;
+        // }
+        // else
+            return NULL;
+        
     }
 };

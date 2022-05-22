@@ -7,9 +7,7 @@ public:
         for(i=0;i<nums.size();i++)
         {
            if(nums[i]==1)
-           {
                temp++;
-           }
             else
             {
                 ans=max(ans,temp);

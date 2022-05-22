@@ -44,20 +44,8 @@ public:
                  st=st->next;
                 }
                  return st;
-            }
-                
+            }      
         }
-
-        // if(f->next)
-        // {
-        //     while(st!=s)
-        //     {
-        //         s=s->next;
-        //         st=st->next;
-        //     }
-        //     return st;
-        // }
-        // else
             return NULL;
         
     }

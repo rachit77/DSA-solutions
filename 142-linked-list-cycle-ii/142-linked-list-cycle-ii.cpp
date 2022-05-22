@@ -28,8 +28,6 @@ public:
 //         return NULL;
         
         //method-2
-        
-       // if()
         ListNode *s=head,*f=head,*st=head;
         
         while(f!=NULL && f->next!=NULL)

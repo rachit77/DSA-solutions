@@ -22,10 +22,14 @@ public:
         
         while(l<r)
         {
-            h=min(height[l],height[r]);
+            int mi=min(height[l],height[r]);
+            
+            if(mi>h){
+                h=mi;
             int area=h*(r-l);
             
             ans=max(ans,area);
+            }
             if(height[l]<=height[r])
                 l++;
             else

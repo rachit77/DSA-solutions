@@ -46,7 +46,7 @@ class Solution
             }
             else
             {
-                int remain=W-cur_weight;
+                double remain=W-cur_weight;
                 value+= ((double) arr[i].value / (double) arr[i].weight) * (double)(remain);
                 break;
             }

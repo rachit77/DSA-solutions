@@ -27,21 +27,16 @@ public:
                     }
                     else  // st.top=='('
                     {
-                        //main logic
                         pair<char,int> temp=st.top();
                         st.pop();
-                        
-                        int val=temp.second;
                         
                         if(!st.empty())
                         {
                             st.top().second+=2;
-                            st.top().second+=val;
+                            st.top().second+=temp.second;
                         }
                         else
-                        {
-                            cnt=cnt+2+val;
-                        }
+                            cnt=cnt+2+temp.second;
                     }
                 }
             }

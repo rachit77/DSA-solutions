@@ -13,7 +13,7 @@ public:
         int n=envelopes.size();
 //         vector<int> ans(n+1,1);
 //         int maxi=1;
-//         cout<<ans.begin();
+//       //  cout<<ans.begin();
 //         for(int i=1;i<n;i++)
 //         {
            
@@ -27,7 +27,8 @@ public:
 //         }
         
 //         return maxi;
-        
+ 
+        //2nd method
         vector<int> lis;
         for(int i=0;i<n;i++)
         {

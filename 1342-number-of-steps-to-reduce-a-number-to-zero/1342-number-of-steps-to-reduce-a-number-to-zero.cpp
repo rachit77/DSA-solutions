@@ -5,7 +5,7 @@ public:
         
         while(n)
         {
-            if(n&1) //odd
+            if(n%2==1) //odd
              n--;
             else
                 n=n/2;

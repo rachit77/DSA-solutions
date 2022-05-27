@@ -5,10 +5,10 @@ public:
         
         while(n)
         {
-            if(n%2==1) //odd
+            if(n&1) //odd
              n--;
             else
-                n=n/2;
+                n/=2;
             cnt++;
         }
         return cnt;

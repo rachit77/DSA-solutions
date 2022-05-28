@@ -4,11 +4,9 @@ public:
         
         stack<string> st,st2;
         string temp="";
-        //cout<<temp.length()<<endl;
         
         for(int i=0;i<s.length();i++)
         {
-            //cout<<s[i];
             if(s[i]==' ' && temp.length()>0)
             {
                st.push(temp);
@@ -26,8 +24,6 @@ public:
         st.push(temp);
         
         string ans="";
-        
-        //cout<<st.size()<<endl;
         
         if(!st.empty())
         {

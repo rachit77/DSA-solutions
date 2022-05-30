@@ -8,7 +8,7 @@ public:
         long int a=abs(dividend);
         long int b=abs(divisor);
         
-         if(b>a) return 0;
+        // if(b>a) return 0;
         
 
         while(a>=b){

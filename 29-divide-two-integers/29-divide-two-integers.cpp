@@ -11,7 +11,7 @@ public:
         unsigned int a=abs(dividend);
         unsigned int b=abs(divisor);
         
-//         if(b>a) return 0;
+         if(b>a) return 0;
         
 
 //         while(a>=b){
@@ -25,15 +25,8 @@ public:
             
 //         }
       
-//         cout<<ans<<" "<<sign<<endl;
-        
-//         if(ans>INT_MAX)
-//         {
-//            return sign==1 ? INT_MAX:INT_MIN;
-//         }
-            
-        
-//         return ans * sign;
+
+
       
        
         while(a >= b){  // while dividend is greater than or equal to divisor
@@ -43,19 +36,11 @@ public:
             ans += (1<<q);  // add the power of 2 found to the answer
             a = a - (b<<q);  // reduce the dividend by divisor * power of 2 found
         }
-       
-        // if(ans == (1<<31) and sign)   // if ans cannot be stored in signed int
-        //     return INT_MAX;
-       // return sign ? ans : -ans;
-        
-        
         
          if(ans>INT_MAX)
         {
            return sign==1 ? INT_MAX:INT_MIN;
-        }
-            
-        
+        }    
         return sign ? ans : -ans;
       
     }

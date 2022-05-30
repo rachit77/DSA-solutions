@@ -1,30 +1,55 @@
 class Solution {
 public:
     int divide(int dividend, int divisor) {
+//         if(dividend == divisor)
+//             return 1;
+    
+//         int sign =(dividend>0 ^ divisor>0)?-1:1;
         
-       //Handling corner cases
-        if(dividend==INT_MIN && divisor==-1) return INT_MAX;
-        if(dividend==INT_MIN && divisor==1) return INT_MIN;
+//         unsigned int ans=0;
+        
+//         unsigned int a=abs(dividend);
+//         unsigned int b=abs(divisor);
+        
+//         if(b>a) return 0;
+        
 
+//         while(a>=b){
+//             int k=0;  
+//             while(a< (b<<k))
+//                 k++;
+            
+//             if(k) k--;
+//             ans=ans+ (1<<k);
+//             a=a-(b<<k);
+            
+//         }
+      
+//         cout<<ans<<" "<<sign<<endl;
         
-        //Converting divisors and dividend to their positive values
-        long int dd = abs(dividend), dv = abs(divisor);
+//         if(ans>INT_MAX)
+//         {
+//            return sign==1 ? INT_MAX:INT_MIN;
+//         }
+            
         
-        //Result Variables
-        int res=0;
-        while(dv<=dd) {
-            long int mul=dv, tmp=1;
-            while(mul<=dd-mul) {
-                mul+=mul;
-                tmp+=tmp;
-            }
-            res+=tmp;
-            dd-=mul;
+//         return ans * sign;
+        if(dividend == divisor)
+            return 1;
+        bool isPositive = (dividend<0 == divisor<0);    // if both are of same sign, answer is positive
+        unsigned int a = abs(dividend);
+        unsigned int b = abs(divisor);
+        unsigned int ans = 0;
+        while(a >= b){  // while dividend is greater than or equal to divisor
+            short q = 0;
+            while(a > (b<<(q+1)))
+                q++;
+            ans += (1<<q);  // add the power of 2 found to the answer
+            a = a - (b<<q);  // reduce the dividend by divisor * power of 2 found
         }
-        
-        //If either of dividend or divisor is negative our result will be negative
-        if((dividend<0&&divisor>0) || (dividend>0&&divisor<0)) return -res;
-        
-        return res; 
+        if(ans == (1<<31) and isPositive)   // if ans cannot be stored in signed int
+            return INT_MAX;
+        return isPositive ? ans : -ans;
+      
     }
 };

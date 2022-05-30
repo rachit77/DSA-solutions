@@ -1,9 +1,6 @@
 class Solution {
 public:
     int divide(int dividend, int divisor) {
-        if(dividend == divisor)
-            return 1;
-    
         int sign =(dividend>0 ^ divisor>0)?0:1;
       
         long int ans=0;

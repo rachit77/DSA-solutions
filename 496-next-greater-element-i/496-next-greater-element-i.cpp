@@ -26,11 +26,6 @@ public:
         
         for(int i=0;i<nums2.size();i++)
         {
-//             if(st.empty())
-//                 st.push(i);
-            
-//             else
-//             {
                     while(!st.empty() && nums2[i]> nums2[st.top()])
                     {
                        int temp=st.top();
@@ -40,8 +35,6 @@ public:
                     }
                     
                     st.push(i);
-                
-           // }
         }
     
         

@@ -4,6 +4,7 @@ public:
         
         vector<int> ans(nums1.size());
         
+        
         for(int i=0;i<nums1.size();i++)
         {
             for(int j=0;j<nums2.size();j++)
@@ -25,19 +26,11 @@ public:
         
         for(int i=0;i<nums2.size();i++)
         {
-            if(st.empty())
-            {
-                st.push(i);
-            }
+//             if(st.empty())
+//                 st.push(i);
             
-            else
-            {
-                if(nums2[i]<= nums2[st.top()])
-                {
-                    st.push(i);
-                }
-                else
-                {
+//             else
+//             {
                     while(!st.empty() && nums2[i]> nums2[st.top()])
                     {
                        int temp=st.top();
@@ -47,14 +40,10 @@ public:
                     }
                     
                     st.push(i);
-                }
-            }
+                
+           // }
         }
-        
-        // for(int i=0;i<nums2.size();i++)
-        // {
-        //     cout<<ng[i]<<endl;
-        // }
+    
         
         for(int i=0;i<nums1.size();i++)
         {

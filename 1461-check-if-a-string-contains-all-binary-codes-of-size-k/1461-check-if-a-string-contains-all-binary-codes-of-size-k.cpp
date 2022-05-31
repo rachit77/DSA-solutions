@@ -14,7 +14,7 @@ public:
         
         if(n<=k) return false;
         
-        set<string> st;
+        unordered_set<string> st;
         
         for(int i=0;i<n;i++)
         {
@@ -29,7 +29,7 @@ public:
             
         if(num== st.size())
             return true;
-        else
+       
         return false;
         
     }

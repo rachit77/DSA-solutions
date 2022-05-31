@@ -13,10 +13,7 @@ public:
                 
         }
         
-        if((1<<k) == st.size())
-            return true;
-       
-        return false;
-        
+        return (1<<k) == st.size();
+            
     }
 };

@@ -14,18 +14,24 @@ public:
         
         if(n<=k) return false;
         
-        unordered_set<string> st;
+        //unordered_set<string> st;
+        unordered_map<string,int> st;
         
         for(int i=0;i<n;i++)
         {
             if(i+k<=n)
             {
                string temp= s.substr(i,k);
-                st.insert(temp);
+               // st.insert(temp);
+                st[temp]=1;
             }
             else break;
             
         }
+        
+        int count=0;
+        for(auto i=st.begin();i!=st.end();i++)
+            count++;
             
         if(num== st.size())
             return true;

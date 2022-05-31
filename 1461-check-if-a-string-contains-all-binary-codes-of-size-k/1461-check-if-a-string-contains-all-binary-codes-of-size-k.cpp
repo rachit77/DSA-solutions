@@ -33,7 +33,7 @@ public:
         for(auto i:st)
             count++;
             
-        if(num== st.size())
+        if(num== count)
             return true;
        
         return false;

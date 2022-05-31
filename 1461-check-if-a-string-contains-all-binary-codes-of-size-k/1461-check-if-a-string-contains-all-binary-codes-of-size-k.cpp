@@ -30,7 +30,7 @@ public:
         }
         
         int count=0;
-        for(auto i=st.begin();i!=st.end();i++)
+        for(auto i:st)
             count++;
             
         if(num== st.size())

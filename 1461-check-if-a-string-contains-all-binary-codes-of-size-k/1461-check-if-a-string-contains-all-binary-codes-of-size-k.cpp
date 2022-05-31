@@ -29,11 +29,11 @@ public:
             
         }
         
-        int count=0;
-        for(auto i:st)
-            count++;
+        // int count=0;
+        // for(auto i:st)
+        //     count++;
             
-        if(num== count)
+        if(num== st.size())
             return true;
        
         return false;

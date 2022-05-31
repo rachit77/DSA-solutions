@@ -26,12 +26,10 @@ public:
             else break;
             
         }
-        cout<<st.size()<<endl;
-        cout<<num;
             
         if(num== st.size())
             return true;
-        
+        else
         return false;
         
     }

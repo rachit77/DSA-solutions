@@ -13,12 +13,8 @@ public:
             flag=-1;
             t++;
         }
-        
-        else if(t<n && s[t]=='+')
-        {
-            flag=1;
-            t++;
-        }
+        else if(t<n && s[t]=='+')  t++;
+       
         
         for(i=t;i<n;i++)
         {
@@ -26,15 +22,18 @@ public:
             if(temp>=0 && temp<=9)
             {
                ans=ans*10 + temp; 
-                if(ans>=INT_MAX) break;
+               if(ans>=INT_MAX) break;
             }
             else break;
         }
-        cout<<ans<<endl;
-        cout<<flag<<endl;
         
-        if(ans>= INT_MAX && flag==1) return INT_MAX;
-        else if(ans> INT_MAX && flag==-1) return INT_MIN;
+        if(ans>INT_MAX)
+        {
+            return flag==1?INT_MAX:INT_MIN;
+        }
+        
+//         if(ans>= INT_MAX && flag==1) return INT_MAX;
+//         else if(ans> INT_MAX && flag==-1) return INT_MIN;
         
         else return (int)ans * flag;
         

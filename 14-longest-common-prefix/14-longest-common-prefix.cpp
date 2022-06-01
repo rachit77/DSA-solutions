@@ -34,10 +34,11 @@ public:
         {
             if(a[i] == b[i])
             {
-                ans=ans+ a[i];
+                //ans=ans+ a[i];
+                cnt++;
             }
             else break;
         }
-        return ans;
+        return a.substr(0,cnt);
     }
 };

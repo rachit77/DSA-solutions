@@ -2,7 +2,7 @@ class Solution {
 public:
     int myAtoi(string s) {
         
-        long long ans=0;
+        long ans=0;
         int t=0,i,n=s.length(),flag=1;
         
         while(t<n && s[t]==' ')
@@ -28,14 +28,10 @@ public:
         }
         
         if(ans>INT_MAX)
-        {
             return flag==1?INT_MAX:INT_MIN;
-        }
-        
-//         if(ans>= INT_MAX && flag==1) return INT_MAX;
-//         else if(ans> INT_MAX && flag==-1) return INT_MIN;
-        
-        else return (int)ans * flag;
+    
+ 
+        return (int)ans * flag;
         
     }
 };

@@ -44,15 +44,7 @@ public:
             }
         }
         
-        
-        // cout<<dp[0][3]<<endl;
-        // cout<<st<<len<<endl;
-        // string ji=s.substr(st,len);
-        // cout<<ji<<endl;
-        
-        
-        string r = s.substr(st,len);
-        return r;
+        return s.substr(st,len);
         
     }
 };

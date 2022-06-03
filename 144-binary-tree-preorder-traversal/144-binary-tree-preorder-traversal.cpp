@@ -16,8 +16,9 @@ public:
         if(root==NULL) return;
         
         v.push_back(root->val);
-        preorder(root->left,v);
-        preorder(root->right,v);
+        if(root->left) preorder(root->left,v);
+        if(root->right) preorder(root->right,v);
+        return;
     }
     vector<int> preorderTraversal(TreeNode* root) {
         

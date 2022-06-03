@@ -12,23 +12,19 @@
 class Solution {
 public:
     int ans=0;
-    int  find(TreeNode* root, int h)
+    int  find(TreeNode* root, int &dia)
     {
         if(root==NULL) return 0;
         
-        int l=find(root->left, h+1);
-        int r= find(root->right,h+1);
+        int l=find(root->left, dia);
+        int r= find(root->right,dia);
         
-        ans=max(ans,l+r);
-        //cout<<l+r<<endl;
+        dia=max(dia,l+r);
         return 1+max(l,r);
-        
-        
     }
     int diameterOfBinaryTree(TreeNode* root) {
-        int h=0;
-        find(root,h);
-        return ans;
-        
+        int dia=0;
+        find(root,dia);
+        return dia;
     }
 };

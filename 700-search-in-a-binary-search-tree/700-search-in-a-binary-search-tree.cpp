@@ -27,9 +27,7 @@ public:
         if(temp!=NULL)
             return temp;
         
-        return NULL;
-            
-        
+        return NULL; 
         
     }
     TreeNode* searchBST(TreeNode* root, int val) {

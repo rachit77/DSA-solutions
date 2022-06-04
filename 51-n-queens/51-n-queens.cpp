@@ -1,38 +1,5 @@
 class Solution {
 public:
-//     bool is_safe(int r, int c, vector<string> &temp, int &n)
-//     {
-//         int x=r,y=c;
-//         //check upper left diagonal
-//         while(r>=0 && c>=0)
-//         {
-//             if(temp[r][c]=='Q')
-//                 return false;
-            
-//             r--;
-//             c--;
-//         }
-        
-//         // check left horizontal line
-// //         r=x,c=y;
-// //         while(r>=0 && c>=0)
-// //         {
-// //             if(temp[r][c]=='Q') return false;
-            
-// //             c--;
-// //         }
-        
-//         //check lower left diagonal
-//         r=x,c=y;
-//         while(r>=0 && c>=0)
-//         {
-//             if(temp[r][c]=='Q') return false;
-//             r++;
-//             c--;
-//         }
-        
-//         return true;
-//     }
     
     void solve(int col, vector<string> &temp, vector<vector<string>> &ans, int &n, vector<int> &row, vector<int> &ud, vector<int> &ld)
     {

@@ -20,11 +20,11 @@ public:
                     
                     i++;
                         
-                    if(x>y) return true;
-                    else if(x<y) return false;
+                    if(x<y) return true;
+                    else if(x>y) return false;
                 }
             }
-            return b.second> a.second;
+            return b.second < a.second;  // true when a is small=> a is smaller than b=> by default max heap=> b comes before a in list
         }
     };
     
@@ -39,9 +39,14 @@ public:
         //make a max heap
         priority_queue< pair<string,int>, vector<pair<string,int>>, compare> pq;
         
+        //min heap
         for(auto it:mp)
+        {
             pq.push({it.first,it.second});
-        
+            if(pq.size() > k) pq.pop();
+        }
+            
+        if(pq.size() > k) pq.pop();
         vector<string> ans;
         
         while(k--)
@@ -49,7 +54,7 @@ public:
             ans.push_back(pq.top().first);
             pq.pop();
         }
-        
+        reverse(ans.begin(), ans.end());
         return ans;
         
     }

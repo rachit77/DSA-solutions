@@ -3,12 +3,13 @@ public:
     
     struct compare {
         bool operator()(pair<int,int> const& a, pair<int,int> const& b){
-            return a.second < b.second;
+            return b.second > a.second;
         }
     };
     
-    vector<int> topKFrequent(vector<int>& nums, int k) {
-        
+    
+    
+    vector<int> topKFrequent(vector<int>& nums, int k) {  
         // key->number.  value->frequency
         unordered_map<int,int> m;
         

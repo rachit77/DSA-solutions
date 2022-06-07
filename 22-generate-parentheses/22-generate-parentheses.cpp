@@ -18,9 +18,8 @@ public:
     vector<string> generateParenthesis(int n) {
         
         vector<string> ans;
-        int o=0,c=0;
-        string s="";
-        find(0,o,c,n,s,ans);
+        string s;
+        find(0,0,0,n,s,ans);
         return ans;
         
     }

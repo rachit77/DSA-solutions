@@ -20,7 +20,26 @@ public:
     int minPathSum(vector<vector<int>>& grid) {
         int r=grid.size(),c =grid[0].size();
         vector<vector<int>> dp(r,vector<int>(c,-1));
-        return path(0,0,grid,dp);
+        //return path(0,0,grid,dp);
+        
+        
+        //method-2 tabulation
+        for(int i=0;i<r;i++)
+        {
+            for(int j=0;j<c;j++)
+            {
+                int a=INT_MAX,b=INT_MAX;
+                if(i>0)
+                    a=grid[i-1][j];
+                
+                if(j>0)
+                    b=grid[i][j-1];
+                
+                if(i==0 && j==0) a=0;
+                grid[i][j]=grid[i][j]+ min(a,b);
+            }
+        }
+        return grid[r-1][c-1];
         
     }
 };

@@ -19,12 +19,12 @@ public:
 //         return find(0,0,triangle,dp);
 //     }
     
-    //method-2
+    //method-2 SC:O(N)
     int minimumTotal(vector<vector<int>>& triangle) {
     int l=triangle.size();
     if(l==1) return triangle[0][0];
     
-    vector<int> dp(l);
+    vector<int> dp;
     dp=triangle[l-1];
     
     for(int i=l-2;i>=0;i--)
@@ -35,7 +35,6 @@ public:
           dp[j]=triangle[i][j] + min(dp[j],dp[j+1]);
         }
     }
-    
     return dp[0];
     }
 };

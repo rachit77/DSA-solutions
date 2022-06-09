@@ -10,26 +10,39 @@
  */
 class Solution {
 public:
-    ListNode* swapPairs(ListNode* head) {
+    ListNode* arrange(ListNode *head)
+    {
+        if(!head || !head->next) return head;
         
+        ListNode *temp=head->next;
+        head->next=arrange(head->next->next);
+        temp->next=head;
+        
+        return temp;
+    }
+    
+    ListNode* swapPairs(ListNode* head) { 
         if(head==NULL ||head->next==NULL) return head;
+
+        //method-1 iterative
+//        ListNode* dummy=new ListNode();
+//         dummy->next=head;
         
-       ListNode* dummy=new ListNode();
-        dummy->next=head;
+//         ListNode *f=dummy, *s=head;
         
-        ListNode *f=dummy, *s=head;
-        
-        while(s!=NULL && s->next!=NULL)
-        {
-            ListNode *temp=s->next;
-            s->next=temp->next;
-            f->next=temp;
-            temp->next=s;
+//         while(s!=NULL && s->next!=NULL)
+//         {
+//             ListNode *temp=s->next;
+//             s->next=temp->next;
+//             f->next=temp;
+//             temp->next=s;
             
-            f=f->next->next;
-            s=s->next;
-        }
+//             f=f->next->next;
+//             s=s->next;
+//         }
+//         return dummy->next;
         
-        return dummy->next;
+        //method-2 recursive
+        return arrange(head);
     }
 };

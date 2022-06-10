@@ -63,7 +63,9 @@ public:
     // method-2 TRIE with DFS
     struct Trie{
         struct Trie* child[26]={NULL};
-        bool isEnd=false;     
+        bool isEnd=false; 
+        
+        
     };
     
     void insert(string s, Trie* root)
@@ -118,12 +120,7 @@ public:
     }
     vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {
        Trie* root=new Trie; 
-        // for(int i=0;i<26;++i)
-        // {
-        //     root->child[i]=NULL;
-        // }
-        
-        
+    
         int r=board.size(), c=board[0].size();
         
         for(auto x: words) insert(x, root);

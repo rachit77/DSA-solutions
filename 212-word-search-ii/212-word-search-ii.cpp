@@ -62,7 +62,7 @@ public:
     
     // method-2 TRIE with DFS
     struct Trie{
-        struct Trie* child[26];
+        struct Trie* child[26]={NULL};
         bool isEnd=false;     
     };
     
@@ -96,29 +96,16 @@ public:
             root->isEnd=false;
         }
         
-         //cout<<root->isEnd<<" "<<s<<" ";
-        //cout<<"ddvw"<<endl;
         int r=board.size(), c=board[0].size();
         if(i<0 || j<0 || i>=r || j>=c || board[i][j]=='.') return;
         
         char ch= board[i][j];
         
         if(root->child[ch-'a'] ==NULL) return;
-        
-        
+    
         //character matches
         board[i][j]='.';
         s.push_back(ch);
-        //cout<<ch<<endl;
-        
-        //cout<<"ggg"<<root->isEnd<<" "<<s<<endl;
-        
-        // if(root->isEnd==true)
-        // {
-        //     // found a word
-        //     ans.push_back(s);
-        //     root->isEnd=false;
-        // }
         
         root=root->child[ch-'a'];
         search(i+1,j,s,root,board,ans);
@@ -131,10 +118,10 @@ public:
     }
     vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {
        Trie* root=new Trie; 
-        for(int i=0;i<26;++i)
-        {
-            root->child[i]=NULL;
-        }
+        // for(int i=0;i<26;++i)
+        // {
+        //     root->child[i]=NULL;
+        // }
         
         
         int r=board.size(), c=board[0].size();

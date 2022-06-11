@@ -137,48 +137,82 @@ public:
 //     }
     
     //method-5 prefix sum and binary search TC: NlogN
-    int minOperations(vector<int>& nums, int x)  {
-        int n=nums.size();
-        vector<int> pre(n+1,0);
+//     int minOperations(vector<int>& nums, int x)  {
+//         int n=nums.size();
+//         vector<int> pre(n+1,0);
         
-        for(int i=1;i<=n;i++)
-            pre[i]=pre[i-1] + nums[i-1];
+//         for(int i=1;i<=n;i++)
+//             pre[i]=pre[i-1] + nums[i-1];
         
-        int suf=0;
+//         int suf=0;
         
-        int ans=n+1; // stores no of element needed to make x
+//         int ans=n+1; // stores no of element needed to make x
         
-        for(int i=n;i>=0;i--)
-        {
-            // apply binary search on prefix vector to find value corresponding to suffix
+//         for(int i=n;i>=0;i--)
+//         {
+//             // apply binary search on prefix vector to find value corresponding to suffix
             
-            int st=0,en=i;
-            int find=x-suf;
+//             int st=0,en=i;
+//             int find=x-suf;
             
-            if(find<0) break;
-            // find suf in pre vector of length n+1
-            while(st<=en)
-            {
-               int mid=st+(en-st)/2;
+//             if(find<0) break;
+//             // find suf in pre vector of length n+1
+//             while(st<=en)
+//             {
+//                int mid=st+(en-st)/2;
                 
-                if(pre[mid]==find)
-                {
-                    ans=min(ans,n-i+mid);
-                    break;
-                }
-                else if(pre[mid]<find)
-                {
-                   st=mid+1; 
-                }
-                else
-                {
-                    en=mid-1;
-                }
+//                 if(pre[mid]==find)
+//                 {
+//                     ans=min(ans,n-i+mid);
+//                     break;
+//                 }
+//                 else if(pre[mid]<find)
+//                 {
+//                    st=mid+1; 
+//                 }
+//                 else
+//                 {
+//                     en=mid-1;
+//                 }
+//             }
+//             if(i!=0) suf+=nums[i-1];
+//         }
+        
+//         return (ans==n+1)?-1:ans;
+        
+//     }
+    
+    //method-6 sliding window
+    int minOperations(vector<int>& nums, int x) {
+        int n=nums.size();
+        int sum=0;
+        
+        for(auto x: nums) sum+=x;
+        
+        sum=sum-x;
+        int i=0,j=0;
+        
+        if(sum==0) return n;
+        if(sum<0) return -1;
+        
+        int window_sum=0;
+        int ans=-1;
+        while(j<n)
+        {
+            window_sum+=nums[j];
+            
+            while(window_sum > sum)
+            {
+                window_sum-=nums[i];
+                i++;
             }
-            if(i!=0) suf+=nums[i-1];
+            if(window_sum==sum)
+            {
+                ans=max(ans,j-i+1);
+            }
+            j++;
         }
         
-        return (ans==n+1)?-1:ans;
-        
+        return (ans==-1)?-1:n-ans;
     }
 };

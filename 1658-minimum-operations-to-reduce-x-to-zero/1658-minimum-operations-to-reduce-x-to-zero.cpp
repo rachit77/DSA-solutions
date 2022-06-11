@@ -62,45 +62,123 @@ public:
 //     }
     
     //method-3 prefix sum and map
-    int minOperations(vector<int>& nums, int x) {
+//     int minOperations(vector<int>& nums, int x) {
         
-        int n=nums.size();
-        unordered_map<int,int> mp;
+//         int n=nums.size();
+//         unordered_map<int,int> mp;
         
-        int sum=0;
-        for(int i=0;i<n;i++)
-        {
-            sum+=nums[i];
-            mp[sum]=i;
-        }
-        if(x>sum) return -1;
-        mp[0]=0;
+//         int sum=0;
+//         for(int i=0;i<n;i++)
+//         {
+//             sum+=nums[i];
+//             mp[sum]=i;
+//         }
+//         if(x>sum) return -1;
+//         mp[0]=0;
         
-        sum=sum-x;
-        //cout<<sum<<endl;
+//         sum=sum-x;
+//         //cout<<sum<<endl;
         
-        int val=0,longest=0;
+//         int val=0,longest=0;
         
-        for(int i=0;i<n;i++)
-        {
-            val+=nums[i];
-            int find=val-sum;
+//         for(int i=0;i<n;i++)
+//         {
+//             val+=nums[i];
+//             int find=val-sum;
             
-            if(mp.count(find)) //key is in map
+//             if(mp.count(find)) //key is in map
+//             {
+//                // cout<<i<<endl;
+//                 if(find==0) longest=max(longest,i+1);
+//                 else
+//                 longest=max(longest,i-mp[find]);
+//             }
+//         }
+        
+//         if(longest==0)
+//         {
+//             if(sum==0) return n;
+//             else return -1;
+//         }
+//         else
+//         return n-longest;
+//     }
+    
+    //method-4 prefix and suffix sum : brute force O(N^2) TLE
+//     int minOperations(vector<int>& nums, int x) {
+//         int n=nums.size();
+        
+//         int i,j,ans=INT_MAX;
+//         vector<int> pre(n+1,0), suf(n+1,0);
+        
+//         //fill prefix sum vector
+//         for(i=1;i<=n;i++)
+//             pre[i]=pre[i-1]+nums[i-1];
+        
+//         //fill sufix sum vector
+//         for(i=n-1;i>=0;i--)
+//             suf[i]=suf[i+1]+nums[i];
+        
+//         for(i=0;i<=n;i++)
+//         {
+//             for(j=n;j>=i;j--)
+//             {
+//                 //cout<<i<<" "<<j<<" "<<pre[i]+suf[j]<<endl;
+//                if(pre[i]+suf[j]==x)
+//                {
+//                    int temp=i+n-j;
+//                    //cout<<temp<<endl;
+//                    ans=min(ans,temp);
+//                }
+//             }
+//         }
+//         cout<<ans<<endl;
+//         return (ans==INT_MAX)?-1:ans;
+//     }
+    
+    //method-5 prefix sum and binary search TC: NlogN
+    int minOperations(vector<int>& nums, int x)  {
+        int n=nums.size();
+        vector<int> pre(n+1,0);
+        
+        for(int i=1;i<=n;i++)
+            pre[i]=pre[i-1] + nums[i-1];
+        
+        int suf=0;
+        
+        int ans=n+1; // stores no of element needed to make x
+        
+        for(int i=n;i>=0;i--)
+        {
+            // apply binary search on prefix vector to find value corresponding to suffix
+            
+            int st=0,en=i;
+            int find=x-suf;
+            
+            if(find<0) break;
+            // find suf in pre vector of length n+1
+            while(st<=en)
             {
-               // cout<<i<<endl;
-                if(find==0) longest=max(longest,i+1);
+               int mid=st+(en-st)/2;
+                
+                if(pre[mid]==find)
+                {
+                    ans=min(ans,n-i+mid);
+                    break;
+                }
+                else if(pre[mid]<find)
+                {
+                   st=mid+1; 
+                }
                 else
-                longest=max(longest,i-mp[find]);
+                {
+                    en=mid-1;
+                }
             }
+            if(i!=0) suf+=nums[i-1];
         }
         
-        if(longest==0)
-        {
-            if(sum==0) return n;
-            else return -1;
-        }
-        else
-        return n-longest;
+        return (ans==n+1)?-1:ans;
+        
     }
 };

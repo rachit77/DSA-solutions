@@ -12,7 +12,7 @@ public:
             while(l<r)
             {
                 int cur_sum=nums[i]+nums[l]+nums[r];
-                
+                if(cur_sum==target) return cur_sum;
                 if(abs(target-cur_sum)<dif)
                 {
                     dif=abs(target-cur_sum);

@@ -39,7 +39,7 @@ public:
             if(temp->child[!set]!=NULL) //opposite bits
             {
                 temp=temp->child[!set];
-                 k=k+ (1<<i);
+                 //k=k+ (1<<i);
             }
             else if(temp->child[set]!=NULL)
             {
@@ -47,8 +47,8 @@ public:
             }
            // k=k+ (1-set)*(1<<i);
         }
-        // return num ^temp->val;
-        return k;
+         return num ^temp->val;
+        //return k;
     }
     int findMaximumXOR(vector<int>& nums) {
         

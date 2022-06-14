@@ -2,7 +2,6 @@ class Solution {
 public:
     struct TrieNode {
         struct TrieNode* child[2];
-        int val;
         
         TrieNode(){
             child[0]=NULL;
@@ -24,13 +23,11 @@ public:
             }
             temp=temp->child[set];
         }
-        temp->val=num;
     }
     
     int findMax(int num)
     {
         TrieNode* temp=node;
-        
         int k=0;
         for(int i=31;i>=0;i--)
         {
@@ -39,17 +36,14 @@ public:
             if(temp->child[!set]!=NULL) //opposite bits
             {
                 temp=temp->child[!set];
-                 //k=k+ (1<<i);
+                 k=k+ (1<<i);
             }
-            else if(temp->child[set]!=NULL)
-            {
+            else // bits same  so xor value =0
                 temp=temp->child[set];
-            }
-           // k=k+ (1-set)*(1<<i);
         }
-         return num ^temp->val;
-        //return k;
+         return k;
     }
+    
     int findMaximumXOR(vector<int>& nums) {
         
         //naive approach tc:O(n^2)

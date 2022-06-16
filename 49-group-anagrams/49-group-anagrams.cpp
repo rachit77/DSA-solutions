@@ -18,7 +18,6 @@ public:
         
         for(auto x: mp)
         {
-           //cout<<x.second.size(); 
             ans.push_back(x.second);
         }
         

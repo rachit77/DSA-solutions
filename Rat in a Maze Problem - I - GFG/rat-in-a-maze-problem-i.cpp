@@ -20,6 +20,7 @@ class Solution{
             return;
         }
         vis[x][y]=1;
+        
         s.push_back('D');
         solve(x+1,y,s,m,n,ans,vis);
         s.pop_back();

@@ -29,10 +29,6 @@ public:
         
         int moves=0;
         int coins=distribute(root,moves);
-        
-        //cout<<coins<<endl;
-        // if(coins!=1) return -1;
-        // else
         return moves;
     }
 };

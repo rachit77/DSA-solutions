@@ -26,6 +26,27 @@ public:
         // }
         // return nums.size() - 1;
         int n=nums.size();
-        return find(nums,0,n-1,n);
+        
+        // int ans= find(nums,0,n-1,n);
+        // cout<<ans;
+        // return ans;
+        
+        int l=0,r=n-1,ans=-1;
+        while(l<=r)
+        {
+            int m=l+(r-l)/2;
+            
+            if((m==0 || nums[m-1]< nums[m]) &&(m==n-1 || nums[m+1]< nums[m]))
+            {
+                ans=m;
+                return m;
+            }
+            else if(m>0 && nums[m-1]> nums[m])
+                r=m-1;
+            else
+                l=m+1;
+        }
+        cout<<ans<<endl;
+        return ans;
     }
 };

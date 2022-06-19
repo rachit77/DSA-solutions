@@ -41,7 +41,9 @@ public:
     }
     
     void findSuggestion(string &st,TrieNode* cur, vector<string> &temp)
-    {        
+    { 
+        if(temp.size() ==3) return;
+        
         if(cur->isEnd==true && temp.size() <3)
         {
             temp.push_back(st);

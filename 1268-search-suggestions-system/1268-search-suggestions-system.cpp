@@ -44,10 +44,8 @@ public:
     { 
         if(temp.size() ==3) return;
         
-        if(cur->isEnd==true && temp.size() <3)
-        {
+        if(cur->isEnd==true)
             temp.push_back(st);
-        }
         
         for(int i=0;i<26;i++)
         {

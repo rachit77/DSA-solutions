@@ -7,9 +7,7 @@ public:
         TrieNode()
         {
             for(int i=0;i<26;i++)
-            {
                 child[i]=NULL;
-            }
         }
     };
     struct TrieNode* root;
@@ -35,22 +33,15 @@ public:
         for(int i=0;i<s.length();i++)
         {
             if(cur->child[s[i]-'a']==NULL)
-            {
                 return NULL;
-            }
             else
-            {
                 cur=cur->child[s[i]-'a'];
-            }
-        }
-        
+        } 
         return cur;
     }
     
-    void findSuggestion(string &st,TrieNode* node, vector<string> &temp)
-    {
-        TrieNode* cur=node;
-        
+    void findSuggestion(string &st,TrieNode* cur, vector<string> &temp)
+    {        
         if(cur->isEnd==true && temp.size() <3)
         {
             temp.push_back(st);
@@ -77,24 +68,17 @@ public:
             insert(root,products[i]);
         }
         
-        
         for(int i=1;i<=searchWord.length();i++)
         {
             vector<string> temp;
             string s=searchWord.substr(0,i);
-           // cout<<s<<endl;
             TrieNode* node= search(root,s);
             
-           // if(node->isEnd==true) temp.push_back(s);
-            
             if(node!=NULL)
-            {
                 findSuggestion(s,node,temp);
-            }
             
             ans.push_back(temp);
         }
-        
         return ans;
     }
 };

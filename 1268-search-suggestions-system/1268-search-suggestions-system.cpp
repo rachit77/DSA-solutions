@@ -68,10 +68,11 @@ public:
             insert(root,products[i]);
         }
         
-        for(int i=1;i<=searchWord.length();i++)
+        string s="";
+        for(int i=0;i<searchWord.length();i++)
         {
             vector<string> temp;
-            string s=searchWord.substr(0,i);
+            s=s+searchWord[i];
             TrieNode* node= search(root,s);
             
             if(node!=NULL)

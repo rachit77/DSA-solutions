@@ -1,5 +1,5 @@
 class Solution {
-public:
+private:
     struct TrieNode {
         struct TrieNode* child [26];
         bool isEnd=false;
@@ -35,12 +35,6 @@ public:
     
     void count(TrieNode* node, int &ans, int d)
     {
-        // if(node->isEnd==true)
-        // {
-        //     d++;
-        //     ans+=d;
-        //     return;
-        // }
         int flag=1;
         for(int i=0;i<26;i++)
         {
@@ -59,7 +53,8 @@ public:
                      
         return;
     }
-        
+      
+public:
     int minimumLengthEncoding(vector<string>& words) {
         
         root=new TrieNode;

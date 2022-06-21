@@ -86,7 +86,8 @@ public:
          while(lo<h)
          {
             // int mid= lo+(h-lo)/2;
-              int mid = (lo+h+1)/2;
+              //int mid = (lo+h+1)/2;
+             int mid = lo + (h - lo + 1) / 2;
              bool isReachable= find(mid,heights,bricks,ladders);
              
              if(isReachable==true)

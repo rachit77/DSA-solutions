@@ -61,32 +61,53 @@ public:
     
     
     //method-3 Binary search
-    bool find(int mid,vector<int>& heights, int bricks, int ladders)
+    bool find(int mid,vector<int>& heights, int bricks, int ladders, vector<pair<int,int>> &v)
     {
-        vector<int> v;
-        for(int i=0;i<mid;i++)
-        {
-            int dif= heights[i+1] - heights[i];
-            if(dif>0)
-                v.push_back(dif);
-        }
+
+//                 vector<int> v;
+//         for(int i=0;i<mid;i++)
+//         {
+//             int dif= heights[i+1] - heights[i];
+//             if(dif>0)
+//                 v.push_back(dif);
+//         }
         
-        sort(v.begin(),v.end(), greater<int>());
+//         sort(v.begin(),v.end(), greater<int>());
         
-        for(int i=ladders;i<v.size();i++)
+        for(int i=0;i<v.size();i++)
         {
-          bricks-=v[i];
-          if(bricks<0) return false;
+        
+            if(v[i].second <= mid)
+            {
+                if(ladders>0) ladders--;
+                else
+                {
+                    bricks-=v[i].first;
+                    if(bricks<0) return false;
+                }
+            }
         }
         return true;
     }
      int furthestBuilding(vector<int>& heights, int bricks, int ladders)      {
          int lo=0,h=heights.size()-1;
          
+        vector<pair<int,int>> v;
+        for(int i=0;i<heights.size()-1;i++)
+        {
+            int dif= heights[i+1] - heights[i];
+            if(dif>0)
+                v.push_back({dif,i+1});
+        }
+        
+        sort(v.begin(),v.end(), greater<pair<int,int>>());
+        
+         
+         
          while(lo<h)
          {
              int mid = lo + (h - lo + 1) / 2;
-             bool isReachable= find(mid,heights,bricks,ladders);
+             bool isReachable= find(mid,heights,bricks,ladders,v);
              
              if(isReachable==true)
                  lo=mid;

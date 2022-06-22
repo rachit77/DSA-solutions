@@ -23,9 +23,7 @@ public:
             }
             
             if(slots2[j][1] > slots1[i][1])
-            {
                 i++;
-            }
             else
                 j++;
         }

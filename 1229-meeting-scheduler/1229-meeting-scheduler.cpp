@@ -49,22 +49,22 @@ public:
         }
         
         vector<int> ans;
+        pair<int,int> sl1;
+       
+        if(!q.empty()){
+        sl1=q.top();
+        q.pop();
+        }
         
-        // while(!q.empty())
-        // {
-        //     pair<int,int> sl1=q.top();
-        //     q.pop();
-        //     cout<<sl1.first<<" "<<sl1.second<<endl;
-        // }
-        
-        while(q.size()>1)
+        while(q.size()>=1)
         {
-            cout<<"yg";
-            pair<int,int> sl1=q.top();
-            q.pop();
-            cout<<sl1.first<<" "<<sl1.second<<endl;
+            // cout<<"yg";
+            // pair<int,int> sl1=q.top();
+            // q.pop();
+            //cout<<sl1.first<<" "<<sl1.second<<endl;
             pair<int,int> sl2=q.top();
-            cout<<sl2.first<<" "<<sl2.second<<endl;
+            q.pop();
+           // cout<<sl2.first<<" "<<sl2.second<<endl;
             
             if(sl1.second>= sl2.first+ duration) //found duration
             {
@@ -72,6 +72,9 @@ public:
                 ans.push_back(sl2.first+ duration);
                 break;
             }
+            
+            if(sl2.second> sl1.second)
+                sl1=sl2;
         }
         return ans;
     }

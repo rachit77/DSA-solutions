@@ -10,29 +10,44 @@
  */
 class Solution {
 public:
+    ListNode* rev(ListNode* temp)
+    {
+        ListNode* head=NULL;
+        while(temp!=NULL)
+        {
+            ListNode* next=temp->next;
+            temp->next=head;
+            
+            head=temp;
+            temp=next;
+        }
+        
+        return head;
+    }
+        
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
         
         //reverse the l1
-        ListNode* l1_new=NULL;
-        while(l1!=NULL)
-        {
-            ListNode* next=l1->next;
-            l1->next=l1_new;
+        ListNode* l1_new=rev(l1);
+//         while(l1!=NULL)
+//         {
+//             ListNode* next=l1->next;
+//             l1->next=l1_new;
             
-            l1_new=l1;
-            l1=next;
-        }
+//             l1_new=l1;
+//             l1=next;
+//         }
         
         //reverse l2
-        ListNode* l2_new=NULL;
-        while(l2!=NULL)
-        {
-            ListNode* next=l2->next;
-            l2->next=l2_new;
+        ListNode* l2_new=rev(l2);
+//         while(l2!=NULL)
+//         {
+//             ListNode* next=l2->next;
+//             l2->next=l2_new;
             
-            l2_new=l2;
-            l2=next;
-        }
+//             l2_new=l2;
+//             l2=next;
+//         }
         
         ListNode* dummy=new ListNode();
         ListNode* temp=dummy;
@@ -61,15 +76,15 @@ public:
         
         
         //reverse the dummy list 
-        ListNode* head=NULL;
-        while(dummy)
-        {
-            ListNode* next=dummy->next;
+        ListNode* head=rev(dummy);
+//         while(dummy)
+//         {
+//             ListNode* next=dummy->next;
             
-            dummy->next=head;
-            head=dummy;
-            dummy=next;
-        }
+//             dummy->next=head;
+//             head=dummy;
+//             dummy=next;
+//         }
         
         if(head->val==0) head=head->next;
         

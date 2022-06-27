@@ -9,7 +9,7 @@ public:
             ans= max(ans,(it-'0'));
         }
         
-        if(flag==1) return 1;
+        //if(flag==1) return 1;
         return ans;
     }
 };

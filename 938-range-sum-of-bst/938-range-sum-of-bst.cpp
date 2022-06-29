@@ -17,8 +17,8 @@ public:
         
        if(root->val >=low && root->val <= high)  ans+=root->val;
         
-        sum(root->left,low,high,ans);
-        sum(root->right,low,high,ans);
+       if(low<=root->val) sum(root->left,low,high,ans);
+       if(high>=root->val) sum(root->right,low,high,ans);
         return;
     }
     int rangeSumBST(TreeNode* root, int low, int high) {

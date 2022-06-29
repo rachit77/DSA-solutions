@@ -15,8 +15,6 @@ public:
                 temp=w[i];
         }
         
-       
-        
         //from right side
         temp=INT_MAX;
         for(int i=w.size()-1;i>=0;i--)
@@ -25,22 +23,16 @@ public:
             
             if(w[i]<temp)
                 temp=w[i];
-        }
-        
-         
+        } 
         
         sort(b.begin(),b.end(),greater<int>());
         sort(v.begin(), v.end(),greater<int>());
-        
-        // for(auto x:v)
-        //     cout<<x<<endl;
         
         int cnt=0;
         int i=0,j=0;
         
         while(i<b.size() && j<v.size())
         {
-            //cout<<b[i]<<" "<<v[j]<<endl;
             if(b[i]<=v[j])
             {
                 i++;
@@ -48,9 +40,7 @@ public:
                 cnt++;
             }
             else
-            {
                 i++;
-            }
         }
         
         return cnt;

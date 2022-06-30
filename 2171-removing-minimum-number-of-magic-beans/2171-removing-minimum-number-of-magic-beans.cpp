@@ -13,9 +13,8 @@ public:
             long long temp=nums[i]*(n-i);
             temp=sum-temp+cur_sum;
             ans=min(ans,temp);
-            //sum-=nums[i];
-            //cur_sum+=nums[i];
-            //cout<<temp<<endl;
+            sum-=nums[i];
+            cur_sum+=nums[i];
         }
         
         return ans;

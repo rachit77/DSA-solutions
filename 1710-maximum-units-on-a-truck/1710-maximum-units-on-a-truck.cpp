@@ -28,8 +28,6 @@ public:
                ans= ans+ truckSize*it[1];
                 truckSize=0;
             }
-            
-            //cout<<ans<<endl;
         }
         
         return ans;

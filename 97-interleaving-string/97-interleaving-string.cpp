@@ -8,7 +8,7 @@ public:
         
         int pos=res.length();
         
-        string key=to_string(i)+"*"+to_string(j)+"*"+to_string(pos);
+        string key=to_string(i)+"*"+to_string(j);//+"*"+to_string(pos);
         
         if(dp.find(key)!=dp.end()) return dp[key];
         

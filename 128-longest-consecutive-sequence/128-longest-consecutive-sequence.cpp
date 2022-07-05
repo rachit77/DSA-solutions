@@ -46,5 +46,7 @@ public:
         }
         
         return max(cur_streak,max_streak);
+        
+        //method-3 Brute force
     }
 };

@@ -28,7 +28,7 @@ public:
         int n=nums.size();
         if(n==0) return 0;
         sort(nums.begin(),nums.end());
-        int max_streak=1;
+        int max_streak=0;
         int cur_streak=1;
         
         for(int i=1;i<n;i++)

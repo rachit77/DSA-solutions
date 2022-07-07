@@ -1,43 +1,43 @@
 class Solution {
 public:
-//     bool find_interleave(string &s1, int i,string s2, int j, string &res, string s3,unordered_map<string,int> &dp)
-//     {
-//         if(res.compare(s3)==0 && s1.length()==i &&j==s2.length()) return true;
+    bool find_interleave(string &s1, int i,string s2, int j, string &res, string s3,unordered_map<string,int> &dp)
+    {
+        if(res.compare(s3)==0 && s1.length()==i &&j==s2.length()) return true;
         
-//         bool ans=false;
+        bool ans=false;
         
-//         int pos=res.length();
+        int pos=res.length();
         
-//         string key=to_string(i)+"*"+to_string(j);//+"*"+to_string(pos);
+        string key=to_string(i)+"*"+to_string(j);//+"*"+to_string(pos);
         
-//         if(dp.find(key)!=dp.end()) return dp[key];
+        if(dp.find(key)!=dp.end()) return dp[key];
         
-//         if(i<s1.length() && s3[pos]==s1[i])
-//         {
-//             res.push_back(s1[i]);
-//             ans |= find_interleave(s1,i+1,s2,j,res,s3,dp); 
-//             res.pop_back();
-//         }
+        if(i<s1.length() && s3[pos]==s1[i])
+        {
+            res.push_back(s1[i]);
+            ans |= find_interleave(s1,i+1,s2,j,res,s3,dp); 
+            res.pop_back();
+        }
         
-//         if(j<s2.length() && s3[pos]==s2[j])
-//         {
-//             res.push_back(s2[j]);
-//             ans |= find_interleave(s1,i,s2,j+1,res,s3,dp); 
-//             res.pop_back();
-//         }
+        if(j<s2.length() && s3[pos]==s2[j])
+        {
+            res.push_back(s2[j]);
+            ans |= find_interleave(s1,i,s2,j+1,res,s3,dp); 
+            res.pop_back();
+        }
         
-//         return dp[key]=ans;
-//     }
+        return dp[key]=ans;
+    }
     
     
     bool isInterleave(string s1, string s2, string s3) {
       
         if(s1.length() +s2.length() !=s3.length()) return false;
         
-        // string res="";
-        // int i=0,j=0;
-        // unordered_map<string,int> dp;
-        // return find_interleave(s1,i,s2,j,res,s3,dp);
+        string res="";
+        int i=0,j=0;
+        unordered_map<string,int> dp;
+        return find_interleave(s1,i,s2,j,res,s3,dp);
         
         //method-2 tabulation sc:O(s1.len * s2.len)
 //         int s1_len=s1.length(), s2_len=s2.length();
@@ -73,30 +73,30 @@ public:
         
         
          //method-3 tabulation sc:O(s1.len or s2.len)
-        int s1_len=s1.length(), s2_len=s2.length();
-        //make a dp
-        bool dp[s2_len+1];
-        dp[0]=true;
+//         int s1_len=s1.length(), s2_len=s2.length();
+//         //make a dp
+//         bool dp[s2_len+1];
+//         dp[0]=true;
         
-        for(int i=0;i<=s1_len;i++)   //s1 string
-        {
-            for(int j=0;j<=s2_len;j++)  // s2 string
-            {
-                bool t1=false,t2=false;
-                if(i!=0)
-                {
-                   t1= (s1[i-1]==s3[i+j-1] && dp[j]); 
-                }
-                if(j!=0)
-                {
-                    t2= (s2[j-1]==s3[i+j-1] && dp[j-1]);
-                }
+//         for(int i=0;i<=s1_len;i++)   //s1 string
+//         {
+//             for(int j=0;j<=s2_len;j++)  // s2 string
+//             {
+//                 bool t1=false,t2=false;
+//                 if(i!=0)
+//                 {
+//                    t1= (s1[i-1]==s3[i+j-1] && dp[j]); 
+//                 }
+//                 if(j!=0)
+//                 {
+//                     t2= (s2[j-1]==s3[i+j-1] && dp[j-1]);
+//                 }
                 
-                if(!(i==0 && j==0))
-                dp[j]= t1 || t2;
-            }
-        }
+//                 if(!(i==0 && j==0))
+//                 dp[j]= t1 || t2;
+//             }
+//         }
         
-        return dp[s2_len];
+//         return dp[s2_len];
     }
 };

@@ -13,11 +13,6 @@ public:
             dp[i]=cost[i]+ min(dp[i-1],dp[i-2]);
         }
         // ans is min of last two
-        //cout<<dp[3]<<endl;
-        // for(auto it:dp)
-        //     cout<<it<<endl;
-        int ans=0;
-        ans=min(dp[n-1],dp[n-2]);
-        return ans;
+        return min(dp[n-1],dp[n-2]);
     }
 };

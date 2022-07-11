@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    void find(TreeNode* root, vector<int> &v, int h)
+    void find(TreeNode* root, vector<int> &v, int &h)
     {
         if(root==NULL) return;
         if(v.size()==h) v.push_back(root->val);
@@ -19,7 +19,7 @@ public:
         h++;
         find(root->right, v, h);
         find(root->left, v,h);
-        //h--;
+        h--;
         return;
     }
     vector<int> rightSideView(TreeNode* root) {

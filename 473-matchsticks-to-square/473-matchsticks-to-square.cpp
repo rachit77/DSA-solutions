@@ -49,14 +49,14 @@ public:
         
         map<string,bool> dp;
         
-        int sum=0;
+         int sum=0;
         for(auto it:m) sum+=it;
         
         if(sum%4!=0 || m.size()<=3) return false;
         
         sum/=4;
         
-        sort(m.begin(), m.end(), greater<int>());
+         sort(m.begin(), m.end(), greater<int>());
         int s1=0,s2=0,s3=0,s4=0,i=0;
         return find(i,s1,s2,s3,s4,m,dp,sum);
     }

@@ -55,11 +55,9 @@ public:
             if(flag!=0) break;
         }
         
-        //if(par==1 || falg==1) return false;
-        
         if(par==0 && flag==2) return true;
         
-        else return false;
+         return false;
         
     }
 };

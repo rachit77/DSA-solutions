@@ -18,33 +18,25 @@ public:
         par[par1]=par2;
     }
     
-    bool validTree(int n, vector<vector<int>>& edges) {
-        
+bool validTree(int n, vector<vector<int>>& edges) { 
         //by union and find no need of rank
         vector<int> par(n);
         
         for(int i=0;i<n;i++)
-            par[i]=i;
-        
-        
+            par[i]=i;  
 // adding a new edge => both the node should not be present in same union
 // at the end all the vertex should be present in same union aka same parent
-        int flag=0;
         
         for(int i=0;i<edges.size();i++)
         {
-           int u=edges[i][0];
+            int u=edges[i][0];
             int v=edges[i][1];
             
            int par1= find_par(u,par);
            int par2= find_par(v,par);
             
             if(par1==par2)
-            {
-                flag=1;
-                break;
-                //cout<<"djvn";
-            }
+               return false;
             
             makeUnion(u,v,par);
         }
@@ -54,15 +46,9 @@ public:
         {
             //cout<<it<<endl;
             if(temp!=find_par(it,par))
-            {
-                flag=1;
-                break;
-            }
+                return false;
         }
         
-        if(flag) return false;
-        
-        return true;
-        
+        return true;  
     }
 };

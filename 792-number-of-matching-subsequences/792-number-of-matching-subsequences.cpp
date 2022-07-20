@@ -77,36 +77,76 @@ public:
     
     
     //method-3
+    bool binary_search(vector<int> &v, int &max_id)
+    {
+        int lo=0,hi=v.size()-1;
+        
+        
+        //find v[i] just greater than max_id
+        while(lo<=hi)
+        {
+            int mid= lo+(hi-lo)/2;
+            
+            if(v[mid]<= max_id)
+            {
+                lo=mid+1;
+            }
+            else
+            {
+                hi=mid;
+            }
+            
+        }
+        
+        if(v[hi]>max_id)
+        {
+            max_id=v[hi];
+            return true;
+        }
+        else
+            return false;
+        
+    }
+    
     int numMatchingSubseq(string s, vector<string>& words) {
         unordered_map<int,vector<int>> mp;
         int i=0;
         for(auto ch:s) mp[ch-'a'].push_back(i++);
         
         int ans=0;
-        for(i=0;i<words.size();i++)
+        for(i=0;i<words.size();i++)  
         {
             string curr=words[i];
             int max_id=-1;
             
-          int flag=0;
+           //int flag=0;
             for(int j=0;j<curr.size();j++) //transversing over a word
            {
               char ch=curr[j];
-              flag=0;
-              for(int k=0;k<mp[ch-'a'].size();k++) //transavesing over vector of indices
-              {
-                  if(mp[ch-'a'][k] >max_id)
-                  {
-                      max_id=mp[ch-'a'][k];
-                      flag=1;
-                      break;
-                  }
-              }
+              
+                auto it= upper_bound(mp[ch-'a'].begin(),mp[ch-'a'].end(), max_id);
+                
+                if(it==mp[ch-'a'].end()) break;
                
-               if(flag==0) break;  
+                max_id=*it;
+              
+              
+                if(j==curr.length()-1) ans++;
+                
+              // for(int k=0;k<mp[ch-'a'].size();k++) //transavesing over vector of indices
+              // {
+              //     if(mp[ch-'a'][k] >max_id)
+              //     {
+              //         max_id=mp[ch-'a'][k];
+              //         flag=1;
+              //         break;
+              //     }
+              // }
+               
+              // if(flag==0) break;  
            }
             
-            if(flag==1) ans++;
+           // if(flag==1) ans++;
             
         }
         

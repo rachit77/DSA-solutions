@@ -1,57 +1,43 @@
 class Solution {
 public:
-    int find(string &s, string &word)
-    {
-        int cnt=0;
-        int word_idx=0;
-        for(int i=0;i<s.length();i++)
-        {
-            if(s[i]==word[word_idx])
-                word_idx++;
+//     int find(string &s, string &word)
+//     {
+//         int cnt=0;
+//         int word_idx=0;
+//         for(int i=0;i<s.length();i++)
+//         {
+//             if(s[i]==word[word_idx])
+//                 word_idx++;
             
-             if(word_idx==word.length())
-                return 1;
+//              if(word_idx==word.length())
+//                 return 1;
             
-        }
-        
-       
-        
-        return 0;
-    }
-    
-	// bool find(string &a, string &b)
-	// {
-	// 	int n = a.size(), m = b.size();
-	// 	int i = 0, j = 0;
-	// 	while (i < n && j < m) {
-	// 		if (a[i] == b[j]) {
-	// 			i++, j++;
-	// 		}
-	// 		else i++;
-	// 	}
-	// 	return j == m;
-	// }
+//         }
+//         return 0;
+//     }
     
     
-    int numMatchingSubseq(string s, vector<string>& words) {
-        //method-1
-        int ans=0;
+//     int numMatchingSubseq(string s, vector<string>& words) {
+//         //method-1
+//         int ans=0;
         
-        unordered_map<string,int> mp;
+//         unordered_map<string,int> mp;
         
-        for(auto &word:words)
-        {
-            mp[word]++;
-        }
-        for(auto &word:mp)
-        {
-            string x=word.first;
-            if( find(s,x) )
-            ans+=word.second;
-        }
-        return ans;
-    }
+//         for(auto &word:words)
+//         {
+//             mp[word]++;
+//         }
+//         for(auto &word:mp)
+//         {
+//             string x=word.first;
+//             if( find(s,x) )
+//             ans+=word.second;
+//         }
+//         return ans;
+//     }
     
+    
+    //method-2 
 //     int numMatchingSubseq(string s, vector<string>& words) {
         
 //         vector<vector< pair<string,int>> > mp(26);
@@ -88,4 +74,42 @@ public:
         
 //         return ans;
 //     }
+    
+    
+    //method-3
+    int numMatchingSubseq(string s, vector<string>& words) {
+        unordered_map<int,vector<int>> mp;
+        int i=0;
+        for(auto ch:s) mp[ch-'a'].push_back(i++);
+        
+        int ans=0;
+        for(i=0;i<words.size();i++)
+        {
+            string curr=words[i];
+            int max_id=-1;
+            
+          int flag=0;
+            for(int j=0;j<curr.size();j++) //transversing over a word
+           {
+              char ch=curr[j];
+              flag=0;
+              for(int k=0;k<mp[ch-'a'].size();k++) //transavesing over vector of indices
+              {
+                  if(mp[ch-'a'][k] >max_id)
+                  {
+                      max_id=mp[ch-'a'][k];
+                      flag=1;
+                      break;
+                  }
+              }
+               
+               if(flag==0) break;  
+           }
+            
+            if(flag==1) ans++;
+            
+        }
+        
+        return ans;
+    }
 };

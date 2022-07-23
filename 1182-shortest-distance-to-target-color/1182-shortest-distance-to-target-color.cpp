@@ -30,15 +30,6 @@ public:
             else arr[i][2]=abs(three-i);    
         }
         
-//         for(int i=0;i<n;i++)
-//         {
-//             for(int j=0;j<3;j++)
-//                 cout<<arr[i][j]<<" ";
-            
-//             cout<<endl;
-//         }
-        
-        
         one=-1,two=-1,three=-1;
         
         for(int i=n-1;i>=0;i--)

@@ -35,47 +35,103 @@ public:
         
 //         return res;
         
-      int s = 0, e = a.size()-1;
-	vector<int> ans(2, -1);
-	//first occurrence
-	while(s <= e){
-		int m = s + (e-s)/2;
-		if(a[m] < target)
-			s = m+1;
-		else if(a[m] > target)
-			e = m-1;
-		else{
-			if(m == 0 || a[m] != a[m-1]){
-				ans[0] = m;
-				break;
-			}
-			else{
-				e = m-1;
-				ans[0] = m-1;
-			}
-		}
-	}
+//       int s = 0, e = a.size()-1;
+// 	vector<int> ans(2, -1);
+// 	
+        //first occurrence
+// 	while(s <= e){
+// 		int m = s + (e-s)/2;
+// 		if(a[m] < target)
+// 			s = m+1;
+// 		else if(a[m] > target)
+// 			e = m-1;
+// 		else{
+// 			if(m == 0 || a[m] != a[m-1]){
+// 				ans[0] = m;
+// 				break;
+// 			}
+// 			else{
+// 				e = m-1;
+// 				ans[0] = m-1;
+// 			}
+// 		}
+// 	}
 
-	//last occurrence
-	s = 0, e = a.size()-1;
-	while(s <= e){
-		int m = s + (e-s)/2;
-		if(a[m] < target)
-			s = m+1;
-		else if(a[m] > target)
-			e = m-1;
-		else{
-			if(m == e || a[m] != a[m+1]){
-				ans[1] = m;
-				break;
-			}
-			else{
-				s = m+1;
-				ans[1] = m+1;
-			}
-		}
-	}
-	return ans;   
+// 	//last occurrence
+// 	s = 0, e = a.size()-1;
+// 	while(s <= e){
+// 		int m = s + (e-s)/2;
+// 		if(a[m] < target)
+// 			s = m+1;
+// 		else if(a[m] > target)
+// 			e = m-1;
+// 		else{
+// 			if(m == e || a[m] != a[m+1]){
+// 				ans[1] = m;
+// 				break;
+// 			}
+// 			else{
+// 				s = m+1;
+// 				ans[1] = m+1;
+// 			}
+// 		}
+// 	}
+// 	return ans;   
+        
+        
+        
+        //retrying with binary search
+        vector<int> ans(2,-1);
+        int n=a.size();
+        if(n==0) return ans;
+        
+        //find the first occurence of target
+        int lo=0,hi=n-1;
+        
+        while(lo<hi)
+        {
+          //  cout<<lo<<" "<<hi<<endl;
+            int mid=lo+(hi-lo)/2;
+            
+            if(target<=a[mid])
+            {
+                hi=mid;
+            }
+            else
+            {
+                lo=mid+1;
+            }
+        }
+        //cout<<hi<<endl;
+        if(hi>=0 && a[hi]==target) ans[0]=hi;
+        
+        
+        //now find the last occurence
+        lo=0,hi=n-1;
+        
+        while(lo<hi)
+        {
+            
+            int mid=lo+(hi-lo+1)/2;
+            cout<<lo<<" "<<mid<<" "<<hi<<endl;
+            if(a[mid]<target)
+            {
+                lo=mid+1;
+            }
+            else if(a[mid]>target)
+            {
+                hi=mid-1;
+            }
+            else //a[mid]==target
+            {
+                lo=mid;
+            }
+            //cout<<"en"<<endl;
+        }
+        
+        if(lo<n && a[lo]==target) ans[1]=lo;
+        
+        return ans;
         
     }
 };

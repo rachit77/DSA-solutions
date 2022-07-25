@@ -90,19 +90,21 @@ public:
         
         while(lo<hi)
         {
-          //  cout<<lo<<" "<<hi<<endl;
             int mid=lo+(hi-lo)/2;
             
-            if(target<=a[mid])
+            if(target<a[mid])
             {
-                hi=mid;
+                hi=mid-1;
             }
-            else
+            else if(target > a[mid])
             {
                 lo=mid+1;
             }
+            else
+            {
+                hi=mid;
+            }
         }
-        //cout<<hi<<endl;
         if(hi>=0 && a[hi]==target) ans[0]=hi;
         
         
@@ -126,7 +128,6 @@ public:
             {
                 lo=mid;
             }
-            //cout<<"en"<<endl;
         }
         
         if(lo<n && a[lo]==target) ans[1]=lo;

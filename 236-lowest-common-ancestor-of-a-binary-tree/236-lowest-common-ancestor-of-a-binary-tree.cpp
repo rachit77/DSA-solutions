@@ -10,26 +10,46 @@
 class Solution {
 public:
     
-    TreeNode* check(TreeNode* root, TreeNode* p, TreeNode* q)
+//     TreeNode* check(TreeNode* root, TreeNode* p, TreeNode* q)
+//     {
+//         if(root==NULL) return NULL;
+        
+//         if(root==p || root==q) return root;
+        
+//         TreeNode* l=check(root->left,p,q);
+//         TreeNode* r=check(root->right,p,q);
+        
+//         if(l==NULL)
+//             return r;
+//         else if(r==NULL)
+//             return l;
+//         else
+//             return root;
+//     }
+    
+//     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        
+//         return check(root,p,q);
+        
+//     }
+    
+    
+    
+    //retry
+    TreeNode* lcs(TreeNode* root, TreeNode* p, TreeNode* q)
     {
         if(root==NULL) return NULL;
-        
         if(root==p || root==q) return root;
+        TreeNode* l=lcs(root->left,p,q);
+        TreeNode* r=lcs(root->right,p,q);
         
-        TreeNode* l=check(root->left,p,q);
-        TreeNode* r=check(root->right,p,q);
-        
-        if(l==NULL)
-            return r;
-        else if(r==NULL)
-            return l;
-        else
-            return root;
+        if(l==NULL) return r;
+        else if(!r) return l;
+        else return root;
+    }
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q){
+        return lcs(root,p,q);
     }
     
-    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        
-        return check(root,p,q);
-        
-    }
+    
 };

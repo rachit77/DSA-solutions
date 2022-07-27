@@ -21,6 +21,7 @@ public:
         
         return;
     }
+   
     void flatten(TreeNode* root) {
         
         if(root==NULL) return;

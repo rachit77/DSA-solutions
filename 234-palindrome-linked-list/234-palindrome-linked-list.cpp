@@ -42,8 +42,7 @@ public:
             ListNode* temp=s;
             s=s->next;
             temp->next=p;
-            p=temp;
-            
+            p=temp;   
         }
         
         if(f) s=s->next; //if odd length
@@ -56,8 +55,6 @@ public:
             s=s->next;
         }
         
-        return true;
-        
-        
+        return true; 
     }
 };
